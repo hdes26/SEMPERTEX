@@ -17,8 +17,8 @@ export class ProjectService {
     try {
       return await this.projectRepository.save(createProjectDto);
     } catch (error) {
-      console.log(error);
-      return error;
+      this.logger.error(ProjectService.name, error);
+      throw error;
     }
   }
 
@@ -30,7 +30,7 @@ export class ProjectService {
 
       return projects;
     } catch (error) {
-      console.log(error);
+      this.logger.error(ProjectService.name, error);
       throw error;
     }
   }

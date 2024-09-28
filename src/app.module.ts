@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { validationSchema } from './settings/validation';
 import { BasicStrategy } from './utils/strategies/basic';
 import { DatabaseModule } from './database/database.module';
+import { TaskModule } from './features/task/task.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { DatabaseModule } from './database/database.module';
     }),
     DatabaseModule,
     ProjectModule,
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService, BasicStrategy],
