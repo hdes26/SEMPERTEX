@@ -6,15 +6,18 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { ProjectService } from './use-case/project.service';
 import { CreateProjectDto } from './core/dto/create-project.dto';
 import { UpdateProjectDto } from './core/dto/update-project.dto';
 import { ApiBasicAuth, ApiTags } from '@nestjs/swagger';
+import { BasicGuard } from 'src/utils/guards/basic';
 
 @ApiTags('project')
 @Controller('project')
 @ApiBasicAuth()
+@UseGuards(BasicGuard)
 export class ProjectController {
   constructor(private readonly projectService: ProjectService) {}
 
