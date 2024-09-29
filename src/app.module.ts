@@ -7,6 +7,7 @@ import { validationSchema } from './settings/validation';
 import { BasicStrategy } from './utils/strategies/basic';
 import { DatabaseModule } from './database/database.module';
 import { TaskModule } from './features/task/task.module';
+import { MemberModule } from './features/member/member.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { TaskModule } from './features/task/task.module';
     DatabaseModule,
     ProjectModule,
     TaskModule,
+    MemberModule,
   ],
   controllers: [AppController],
   providers: [AppService, BasicStrategy],
