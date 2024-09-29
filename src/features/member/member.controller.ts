@@ -31,6 +31,11 @@ export class MemberController {
     return await this.memberService.findAll();
   }
 
+  @Get(':id/assigned-tasks')
+  async assignedTasks(@Param('id') id: string) {
+    return await this.memberService.assignedTasks(id);
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: string) {
     return await this.memberService.findOne(id);
