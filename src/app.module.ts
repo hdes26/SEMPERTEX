@@ -8,6 +8,7 @@ import { BasicStrategy } from './utils/strategies/basic';
 import { DatabaseModule } from './database/database.module';
 import { TaskModule } from './features/task/task.module';
 import { MemberModule } from './features/member/member.module';
+import { TaskPriorityModule } from './features/task-priority/task-priority.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { MemberModule } from './features/member/member.module';
     ProjectModule,
     TaskModule,
     MemberModule,
+    TaskPriorityModule,
   ],
   controllers: [AppController],
   providers: [AppService, BasicStrategy],
