@@ -10,10 +10,10 @@ import { LoggerService } from 'src/settings/logger';
 export class MemberService {
   constructor(
     @InjectRepository(Member)
-    private memberRepository: Repository<Member>,
+    private readonly memberRepository: Repository<Member>,
     @InjectRepository(TaskMember)
-    private taskMemberRepository: Repository<TaskMember>,
-    private logger: LoggerService,
+    private readonly taskMemberRepository: Repository<TaskMember>,
+    private readonly logger: LoggerService,
   ) {}
   async create(createMemberDto: CreateMemberDto) {
     try {

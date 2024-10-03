@@ -10,8 +10,8 @@ import { LoggerService } from 'src/settings/logger';
 export class ProjectService {
   constructor(
     @InjectRepository(Project)
-    private projectRepository: Repository<Project>,
-    private logger: LoggerService,
+    private readonly projectRepository: Repository<Project>,
+    private readonly logger: LoggerService,
   ) {}
   async create(createProjectDto: CreateProjectDto) {
     try {

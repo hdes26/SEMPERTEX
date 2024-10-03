@@ -10,11 +10,10 @@ import { LoggerService } from 'src/settings/logger';
 export class TaskPriorityService {
   constructor(
     @InjectRepository(TaskPriority)
-    private taskPriorityRepository: Repository<TaskPriority>,
+    private readonly taskPriorityRepository: Repository<TaskPriority>,
     @InjectRepository(Task)
-    private taskRepository: Repository<Task>,
-
-    private logger: LoggerService,
+    private readonly taskRepository: Repository<Task>,
+    private readonly logger: LoggerService,
   ) {}
   async create({ taskId, ...createTaskPriorityDto }: CreateTaskPriorityDto) {
     try {

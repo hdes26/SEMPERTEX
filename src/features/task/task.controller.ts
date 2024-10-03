@@ -7,12 +7,14 @@ import {
   Param,
   Delete,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 import { TaskService } from './use-case/task.service';
 import { CreateTaskDto } from './core/dto/create-task.dto';
 import { UpdateTaskDto } from './core/dto/update-task.dto';
 import { ApiBasicAuth, ApiTags } from '@nestjs/swagger';
 import { BasicGuard } from 'src/utils/guards/basic';
+import { FindTasksDto } from './core/dto/find-task.dto';
 
 @ApiTags('task')
 @Controller('task')
@@ -31,9 +33,19 @@ export class TaskController {
     return await this.taskService.assign(id, memberId);
   }
 
+  @Delete(':id/unassign/:memberId')
+  async unassign(@Param('id') id: string, @Param('memberId') memberId: string) {
+    return await this.taskService.unassign(id, memberId);
+  }
+
   @Get()
-  async findAll() {
-    return await this.taskService.findAll();
+  async findAll(@Query() query: FindTasksDto) {
+    return await this.taskService.findAll(query);
+  }
+
+  @Get(':id/assigned-members')
+  async membersAssigned(@Param('id') id: string) {
+    return await this.taskService.membersAssigned(id);
   }
 
   @Get(':id')
